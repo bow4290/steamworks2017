@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;SteamWorksCodeProject&apos;" deleteContents="true" description="Delete resource &apos;SteamWorksCodeProject&apos;" element1="/SteamWorksCodeProject" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1484416684481"/>
+</session>
