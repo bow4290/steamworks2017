@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team4290.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4290.robot.commands.ShootCommand;
+import org.usfirst.frc.team4290.robot.subsystems.ShooterSubsystem;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -42,10 +43,13 @@ public class OI {
 	
 	public Joystick joystickRight;
 	public JoystickButton shootButton;
+	public JoystickButton shootOnceButton;
 	
 	public OI() {
 		joystickRight = new Joystick(0);
-		shootButton = new JoystickButton(joystickRight, 0);
-		shootButton.whenPressed(new ShootCommand());
+		shootButton = new JoystickButton(joystickRight, 3);
+		shootButton.whileHeld(new ShootCommand());
+		shootOnceButton = new JoystickButton(joystickRight, 0);
+		shootOnceButton.whenReleased(new ShootCommand());
 	}
 }

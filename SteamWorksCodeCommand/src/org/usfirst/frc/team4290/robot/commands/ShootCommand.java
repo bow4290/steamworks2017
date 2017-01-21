@@ -1,5 +1,7 @@
 package org.usfirst.frc.team4290.robot.commands;
 
+import org.usfirst.frc.team4290.robot.Robot;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -7,9 +9,11 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ShootCommand extends Command {
 
+	private double shooterSpeed;
     public ShootCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	shooterSpeed = 0.5;
     }
 
     // Called just before this Command runs the first time
@@ -18,6 +22,7 @@ public class ShootCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.shooterSub.shootFuelAt(shooterSpeed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -33,4 +38,13 @@ public class ShootCommand extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
+    
+    public void setShooterSpeed(double shooterSpeed){
+    	this.shooterSpeed=shooterSpeed;
+    	
+    }
+    public double getShooterSpeed(){
+    	return this.shooterSpeed;
+    }
+    
 }
