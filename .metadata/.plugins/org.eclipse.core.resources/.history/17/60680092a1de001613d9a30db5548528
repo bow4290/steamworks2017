@@ -1,0 +1,31 @@
+package org.usfirst.frc.team4290.robot.subsystems;
+
+import edu.wpi.first.wpilibj.command.Subsystem;
+
+/**
+ *
+ */
+public class Pneumatics extends Subsystem {
+
+    // Put methods for controlling this subsystem
+    // here. Call these from Commands.
+	
+
+	//These are the solenoids for the robot.
+	
+	private final Compressor compressor = Robotmap.pneumaticCompressor;
+			
+			
+			//As of 1-19-17, there is not enough information about the pneumatics system.
+	
+	
+	
+	
+	
+	
+    public void initDefaultCommand() {
+        // Set the default command for a subsystem here.
+        //setDefaultCommand(new MySpecialCommand());
+    }
+}
+

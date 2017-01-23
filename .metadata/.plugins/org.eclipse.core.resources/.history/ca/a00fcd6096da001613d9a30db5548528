@@ -1,0 +1,53 @@
+package org.usfirst.frc.team4290.robot;
+
+import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.livewindow.LiveWindowSendable;
+
+/**
+ * The RobotMap is a mapping from the ports sensors and actuators are wired into
+ * to a variable name. This provides flexibility changing wiring, makes checking
+ * the wiring easier and significantly reduces the number of magic numbers
+ * floating around.
+ */
+public class RobotMap {
+	
+	//Establish (name) motor variables
+	public static SpeedController driveTrainLeftMotor;
+	public static SpeedController driveTrainRightMotor;
+	
+	
+	public static void init(){
+		//Initializing (making them useful) motor variables
+		driveTrainLeftMotor = new Talon(0);
+		LiveWindow.addActuator("DriveTrain", "LeftWheels", (LiveWindowSendable) driveTrainLeftMotor);
+		driveTrainRightMotor = new Talon(1);
+		LiveWindow.addActuator("DriveTrain", "RightWheels", (LiveWindowSendable) driveTrainRightMotor);
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// For example to map the left and right motors, you could define the
+	// following variables to use with your drivetrain subsystem.
+	// public static int leftMotor = 1;
+	// public static int rightMotor = 2;
+
+	// If you are using multiple modules, make sure to define both the port
+	// number and the module. For example you with a rangefinder:
+	// public static int rangefinderPort = 1;
+	// public static int rangefinderModule = 1;
+}
