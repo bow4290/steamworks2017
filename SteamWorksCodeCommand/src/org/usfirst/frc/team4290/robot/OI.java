@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import org.usfirst.frc.team4290.robot.commands.ClimbUpCommand;
 import org.usfirst.frc.team4290.robot.commands.ExampleCommand;
+import org.usfirst.frc.team4290.robot.commands.FuelRollerCommand;
 import org.usfirst.frc.team4290.robot.commands.OpenClimbDoorCommand;
 import org.usfirst.frc.team4290.robot.commands.ShootCommand;
 import org.usfirst.frc.team4290.robot.subsystems.ShooterSubsystem;
@@ -48,6 +49,7 @@ public class OI {
 	public JoystickButton shootOnceButton;
 	public JoystickButton climbUpButton;
 	public JoystickButton openDoorButton;
+	public JoystickButton turnRollerButton;
 	
 	public OI() {
 		joystickRight = new Joystick(0);
@@ -59,5 +61,8 @@ public class OI {
 		climbUpButton.whileHeld(new ClimbUpCommand());
 		openDoorButton = new JoystickButton(joystickRight, 0);
 		openDoorButton.whenPressed(new OpenClimbDoorCommand());
+		turnRollerButton = new JoystickButton(joystickRight, 0);
+		turnRollerButton.whenPressed(new FuelRollerCommand());
+		
 	}
 }
