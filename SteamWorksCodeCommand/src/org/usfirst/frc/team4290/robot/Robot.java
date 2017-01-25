@@ -16,9 +16,7 @@ import org.opencv.core.Mat;
 import org.opencv.core.Point;
 import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
-import org.usfirst.frc.team4290.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4290.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team4290.robot.subsystems.ExampleSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -29,8 +27,7 @@ import org.usfirst.frc.team4290.robot.subsystems.ExampleSubsystem;
  */
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-	public static final DriveTrain driveTrain = new DriveTrain();
+	public static DriveTrain driveTrain;
 	public static OI oi;
 	// Thread for the Camera Vision
 	Thread visionThread;
@@ -46,7 +43,8 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		chooser.addDefault("Default Auto", new ExampleCommand());
+		//Initiate drivetrain
+		driveTrain = new DriveTrain();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);
 

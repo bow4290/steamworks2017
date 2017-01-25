@@ -29,13 +29,13 @@ public class RobotMap {
 	
 	public static void init(){
 		//Initializing (making them useful) motor variables
-		driveTrainRightMotorOne = new Talon(0);
+		driveTrainRightMotorOne = new Talon(2);
 		LiveWindow.addActuator("DriveTrain", "RightWheels1", (LiveWindowSendable) driveTrainRightMotorOne);
-		driveTrainRightMotorTwo = new Talon(1);
+		driveTrainRightMotorTwo = new Talon(3);
 		LiveWindow.addActuator("DriveTrain", "RightWheels2", (LiveWindowSendable) driveTrainRightMotorTwo);
-		driveTrainLeftMotorOne = new Talon(2);
+		driveTrainLeftMotorOne = new Talon(4);
 		LiveWindow.addActuator("DriveTrain", "LeftWheels1", (LiveWindowSendable) driveTrainLeftMotorOne);
-		driveTrainLeftMotorTwo = new Talon(3);
+		driveTrainLeftMotorTwo = new Talon(1);
 		LiveWindow.addActuator("DriveTrain", "LeftWheels2", (LiveWindowSendable) driveTrainLeftMotorTwo);
 		//Drive Train Motors
 		driveTrainRobotDrive4 = new RobotDrive(driveTrainRightMotorOne, driveTrainRightMotorTwo, 
