@@ -42,8 +42,10 @@ public class Robot extends IterativeRobot {
 
 	@Override
 	public void robotInit() {
+		//Initialize the robot Map, otherwise the code will crash.
+		RobotMap.init();
 		oi = new OI();
-		//Initiate drivetrain
+		//Initiate driveTrain
 		driveTrain = new DriveTrain();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", chooser);

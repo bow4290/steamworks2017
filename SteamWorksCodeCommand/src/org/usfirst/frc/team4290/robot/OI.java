@@ -38,7 +38,7 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	public OI() {
-		rightJoystick = new Joystick(2);
+		rightJoystick = new Joystick(0);
 	}
 	
 }

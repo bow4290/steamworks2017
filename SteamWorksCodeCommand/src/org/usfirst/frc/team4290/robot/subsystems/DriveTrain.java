@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4290.robot.subsystems;
 
+import org.usfirst.frc.team4290.robot.Robot;
 import org.usfirst.frc.team4290.robot.RobotMap;
 import org.usfirst.frc.team4290.robot.commands.DriveWithJoysticks;
 
@@ -18,20 +19,20 @@ public class DriveTrain extends Subsystem {
 	private final SpeedController driveLeftMotorOne = RobotMap.driveTrainLeftMotorOne;
 	private final SpeedController driveLeftMotorTwo = RobotMap.driveTrainLeftMotorTwo;
 	
-	private final RobotDrive robotDrive4 = RobotMap.driveTrainRobotDrive4;
 	
 	
 	//Joystick Inputs
 	
 	public void takeJostickInputs(Joystick right){
-		robotDrive4.arcadeDrive(0,0, true);
+//		RobotMap.driveTrainRobotDrive4.arcadeDrive(right.getX(), right.getY(), true);
+		RobotMap.driveTrainRobotDrive4.arcadeDrive(right, true);
 	}
 	
 	
 	
 	public void stop() {
 		
-		robotDrive4.tankDrive(0, 0);
+		RobotMap.driveTrainRobotDrive4.arcadeDrive(0, 0);
 	
 	}
 	
