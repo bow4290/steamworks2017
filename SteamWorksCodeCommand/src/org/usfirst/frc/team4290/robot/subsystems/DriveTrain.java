@@ -27,7 +27,12 @@ public class DriveTrain extends Subsystem {
 //		RobotMap.driveTrainRobotDrive4.arcadeDrive(right.getX(), right.getY(), true);
 		RobotMap.driveTrainRobotDrive4.arcadeDrive(right, true);
 	}
-	
+	public void turnRight(){
+		RobotMap.driveTrainRobotDrive4.arcadeDrive(0, -0.5);
+	}
+	public void turnLeft(){
+		RobotMap.driveTrainRobotDrive4.arcadeDrive(0, 0.5);
+	}
 	
 	
 	public void stop() {

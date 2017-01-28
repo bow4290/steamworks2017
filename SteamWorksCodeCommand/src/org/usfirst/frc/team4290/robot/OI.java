@@ -1,7 +1,10 @@
 package org.usfirst.frc.team4290.robot;
 
+import org.usfirst.frc.team4290.robot.commands.turnXDegrees;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 
 /**
@@ -17,6 +20,7 @@ public class OI {
 	// Joystick stick = new Joystick(port);
 	// Button button = new JoystickButton(stick, buttonNumber);
 	public Joystick rightJoystick;
+	public JoystickButton turnXButton;
 
 	// There are a few additional built in buttons you can use. Additionally,
 	// by subclassing Button you can create custom triggers and bind those to
@@ -39,6 +43,8 @@ public class OI {
 	// button.whenReleased(new ExampleCommand());
 	public OI() {
 		rightJoystick = new Joystick(0);
+		turnXButton = new JoystickButton(rightJoystick, 1);
+		turnXButton.whenPressed(new turnXDegrees(90.0));
 	}
 	
 }

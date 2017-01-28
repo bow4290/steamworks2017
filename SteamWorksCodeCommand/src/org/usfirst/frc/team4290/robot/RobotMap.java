@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4290.robot;
 
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
@@ -23,8 +24,7 @@ public class RobotMap {
 	public static SpeedController driveTrainLeftMotorOne;
 	public static SpeedController driveTrainLeftMotorTwo;
 	
-	//Establish (name) for the compressor
-	public static Compressor pneumaticsCompressor;
+	public static ADXRS450_Gyro turningMicroGyro;
 	
 	
 	public static void init(){
@@ -40,7 +40,8 @@ public class RobotMap {
 		//Drive Train Motors
 		driveTrainRobotDrive4 = new RobotDrive(driveTrainRightMotorOne, driveTrainRightMotorTwo, 
 				driveTrainLeftMotorOne, driveTrainLeftMotorTwo);
-		
+		turningMicroGyro = new ADXRS450_Gyro();
+				
 		
 		
 		
