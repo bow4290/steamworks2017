@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.livewindow.LiveWindowSendable;
 
@@ -27,6 +28,12 @@ public class RobotMap {
 	public static Compressor pneumaticsCompressor;
 	
 	
+	//Establish (name) a gyro component
+	public static ADXRS450_Gyro turningMicroGyro;
+	
+	
+	
+	
 	public static void init(){
 		//Initializing (making them useful) motor variables
 		driveTrainRightMotorOne = new Talon(2);
@@ -41,17 +48,11 @@ public class RobotMap {
 		driveTrainRobotDrive4 = new RobotDrive(driveTrainRightMotorOne, driveTrainRightMotorTwo, 
 				driveTrainLeftMotorOne, driveTrainLeftMotorTwo);
 		
-		
+		//Initializing (making useful) the turning gyro
+		turningMicroGyro = new ADXRS450_Gyro();
 		
 		
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	

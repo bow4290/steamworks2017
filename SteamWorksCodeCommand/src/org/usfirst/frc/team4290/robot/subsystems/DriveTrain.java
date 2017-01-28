@@ -36,8 +36,11 @@ public class DriveTrain extends Subsystem {
 	
 	}
 	
-	
-	
+	//For command that turns the entire robot 90/180/x degrees to the left
+	public void turnBotLeft(){
+		RobotMap.driveTrainRobotDrive4.arcadeDrive(-0.5, 0.5);
+		
+	}
 	
 
     // Put methods for controlling this subsystem
