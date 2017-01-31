@@ -1,7 +1,11 @@
 package org.usfirst.frc.team4290.robot;
 
+import org.usfirst.frc.team4290.robot.commands.Turn180DegreesCommand;
+import org.usfirst.frc.team4290.robot.commands.Turn90DegreesCommand;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 
 /**
@@ -17,6 +21,13 @@ public class OI {
 	// Joystick stick = new Joystick(port);
 	// Button button = new JoystickButton(stick, buttonNumber);
 	public Joystick rightJoystick;
+	
+	//A button for turning 90 degrees.
+	public JoystickButton buttonSixforTurn90;
+	public JoystickButton turnRightButton;
+	
+	
+	
 
 	// There are a few additional built in buttons you can use. Additionally,
 	// by subclassing Button you can create custom triggers and bind those to
@@ -38,7 +49,14 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	public OI() {
+		// Directing these objects in code to the physical hardware.
 		rightJoystick = new Joystick(0);
+		//Code for button to turn the robot 90 degrees.
+		buttonSixforTurn90 = new JoystickButton(rightJoystick, 5);
+		buttonSixforTurn90.whileHeld(new Turn90DegreesCommand());
+		turnRightButton = new JoystickButton(rightJoystick, 6);
+		turnRightButton.whileHeld(new Turn180DegreesCommand());
+		
 	}
 	
 }

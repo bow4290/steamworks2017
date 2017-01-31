@@ -23,7 +23,7 @@ public class Turn180DegreesCommand extends Command {
     protected void initialize() {
     	
     	//This gets the angle of the robot before the robot turns
-    	currentAngleNow180 = RobotMap.turningMicroGyro.getAngle();
+    	currentAngleNow180 = RobotMap.turningMicroGyro.getAngle() % 360;
     	
     }
 
@@ -31,9 +31,9 @@ public class Turn180DegreesCommand extends Command {
     protected void execute() {
     	
     	// Call the turn; Turn as long as this is true; Make sure it is turning when it needs to and not when it's backwards for example
-    	while (currentAngleNow180 - 180 < RobotMap.turningMicroGyro.getAngle()){
-    		Robot.driveTrain.turnBotLeft();
-    	}
+//    	while (currentAngleNow180 - 180 < RobotMap.turningMicroGyro.getAngle()){
+    		Robot.driveTrain.turnBotRight();
+//    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
