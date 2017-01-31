@@ -37,8 +37,7 @@ public class DriveTrain extends Subsystem {
 		RobotMap.driveTrainRobotDrive4.drive(1, -.2);
 	}
 	
-	
-	
+
 	
 	public void stop() {
 		
