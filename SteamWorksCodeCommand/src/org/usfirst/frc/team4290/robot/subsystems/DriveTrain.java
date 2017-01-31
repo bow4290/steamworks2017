@@ -40,7 +40,6 @@ public class DriveTrain extends Subsystem {
 	
 	
 	
-	
 	public void stop() {
 		
 		RobotMap.driveTrainRobotDrive4.arcadeDrive(0, 0);
