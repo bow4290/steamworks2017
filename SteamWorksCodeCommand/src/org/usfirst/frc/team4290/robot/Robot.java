@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team4290.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team4290.robot.subsystems.GearLift;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,6 +24,7 @@ public class Robot extends IterativeRobot {
 	public static DriveTrain driveTrain;
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
+	public static GearLift gearLift;
 
 	/**
 	 * This function is run when the robot is first started up and should be

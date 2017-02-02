@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4290.robot;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
+import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
@@ -19,7 +20,7 @@ public class RobotMap {
 	public static SpeedController driveTrainLeftMotorOne;
 	public static SpeedController driveTrainLeftMotorTwo;
 	public static ADXRS450_Gyro turningGyro;
-	
+	public static Jaguar gearLiftMotor;
 	
 	public static void init(){
 		
