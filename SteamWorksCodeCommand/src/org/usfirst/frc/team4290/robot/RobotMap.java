@@ -2,6 +2,7 @@ package org.usfirst.frc.team4290.robot;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.Jaguar;
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
@@ -24,6 +25,7 @@ public class RobotMap {
 	public static Jaguar shooterMotorOne;
 	public static Jaguar shooterMotorTwo;
 	public static Jaguar climberMotor;
+	public static Relay fuelPickupMotor;
 	
 	
 	public static void init(){
@@ -40,6 +42,7 @@ public class RobotMap {
 		shooterMotorTwo = new Jaguar(0);
 		gearLiftMotor = new Jaguar(0);
 		climberMotor = new Jaguar(0);
+		fuelPickupMotor = new Relay(0);
 				
 	}
 
