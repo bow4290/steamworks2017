@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team4290.robot.subsystems.ClimberSubsystem;
 import org.usfirst.frc.team4290.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4290.robot.subsystems.FuelPickupSubsystem;
+import org.usfirst.frc.team4290.robot.subsystems.FuelConveyerSubsystem;
 import org.usfirst.frc.team4290.robot.subsystems.GearLift;
 import org.usfirst.frc.team4290.robot.subsystems.ShooterSubsystem;
 
@@ -31,6 +32,7 @@ public class Robot extends IterativeRobot {
 	public static ShooterSubsystem shooterSubsystem;
 	public static ClimberSubsystem climberSubsystem;
 	public static FuelPickupSubsystem fuelPickupSubsystem;
+	public static FuelConveyerSubsystem fuelConveyerSubsystem;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -44,6 +46,7 @@ public class Robot extends IterativeRobot {
 		shooterSubsystem = new ShooterSubsystem();
 		climberSubsystem = new ClimberSubsystem();
 		fuelPickupSubsystem = new FuelPickupSubsystem();
+		fuelConveyerSubsystem = new FuelConveyerSubsystem();
 		SmartDashboard.putData("Auto mode", chooser);
 		
 	}
