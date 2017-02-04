@@ -22,6 +22,7 @@ public class RobotMap {
 	public static ADXRS450_Gyro turningGyro;
 	public static Jaguar gearLiftMotor;
 	public static Jaguar shooterMotor;
+	public static Jaguar climberMotor;
 	
 	
 	public static void init(){
@@ -36,6 +37,7 @@ public class RobotMap {
 		turningGyro = new ADXRS450_Gyro();
 		shooterMotor = new Jaguar(0);
 		gearLiftMotor = new Jaguar(0);
+		climberMotor = new Jaguar(0);
 				
 	}
 

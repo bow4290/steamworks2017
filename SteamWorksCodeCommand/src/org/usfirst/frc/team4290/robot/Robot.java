@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team4290.robot.subsystems.ClimberSubsystem;
 import org.usfirst.frc.team4290.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4290.robot.subsystems.GearLift;
 import org.usfirst.frc.team4290.robot.subsystems.ShooterSubsystem;
@@ -27,6 +28,7 @@ public class Robot extends IterativeRobot {
 	SendableChooser<Command> chooser = new SendableChooser<>();
 	public static GearLift gearLift;
 	public static ShooterSubsystem shooterSubsystem;
+	public static ClimberSubsystem climberSubsystem;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -38,6 +40,7 @@ public class Robot extends IterativeRobot {
 		driveTrain = new DriveTrain();
 		oi = new OI();
 		shooterSubsystem = new ShooterSubsystem();
+		climberSubsystem = new ClimberSubsystem();
 		SmartDashboard.putData("Auto mode", chooser);
 		
 	}
