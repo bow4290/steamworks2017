@@ -21,7 +21,7 @@ public class RobotMap {
 	public static SpeedController driveTrainLeftMotorOne;
 	public static SpeedController driveTrainLeftMotorTwo;
 	public static ADXRS450_Gyro turningGyro;
-	public static Jaguar gearLiftMotor;
+	public static Relay gearLiftMotor;
 	public static Jaguar shooterMotorOne;
 	public static Jaguar shooterMotorTwo;
 	public static Jaguar climberMotor;
@@ -41,7 +41,7 @@ public class RobotMap {
 		turningGyro = new ADXRS450_Gyro();
 		shooterMotorOne = new Jaguar(0);
 		shooterMotorTwo = new Jaguar(0);
-		gearLiftMotor = new Jaguar(0);
+		gearLiftMotor = new Relay(0);
 		climberMotor = new Jaguar(0);
 		fuelPickupMotor = new Relay(0);
 		fuelConveyerMotor = new Jaguar(0);

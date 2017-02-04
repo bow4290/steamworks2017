@@ -2,6 +2,7 @@ package org.usfirst.frc.team4290.robot.commands;
 
 import org.usfirst.frc.team4290.robot.Robot;
 
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -30,10 +31,12 @@ public class dropGearCommand extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.gearLift.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	end();
     }
 }
