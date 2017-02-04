@@ -13,7 +13,7 @@ public class RotateShooterByXCommand extends Command {
     public RotateShooterByXCommand(double speed) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	
+    	requires(Robot.shooterSubsystem);
     	this.speed = speed;
     	
     }
@@ -24,7 +24,7 @@ public class RotateShooterByXCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shooterSubsystem.rotateShooter(speed);
+    	Robot.shooterSubsystem.rotateShooter(Robot.oi.leftJoystick.getX());
     }
 
     // Make this return true when this Command no longer needs to run execute()

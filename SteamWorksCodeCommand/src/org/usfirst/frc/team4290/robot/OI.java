@@ -19,6 +19,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
 	public Joystick rightJoystick;
+	public Joystick leftJoystick;
 	public JoystickButton turnRightButton;
 	public JoystickButton turnLeftButton;
 	public JoystickButton gearUpButton;
@@ -32,29 +33,33 @@ public class OI {
 	public JoystickButton rotateShooterRightButton;
 	
 	public OI(){
+		//Driver Commands (Driver 1)
 		rightJoystick = new Joystick(0);
+		leftJoystick = new Joystick(1);
 		turnRightButton = new JoystickButton(rightJoystick, 6);
 		turnLeftButton = new JoystickButton(rightJoystick, 5);
 		turnRightButton.whileHeld(new TurnXDegrees(90));
 		turnLeftButton.whileHeld(new TurnXDegrees(180));
-		gearUpButton = new JoystickButton(rightJoystick, 0);
-		gearDownButton = new JoystickButton(rightJoystick, 0);
+		gearUpButton = new JoystickButton(rightJoystick, 3);
+		gearDownButton = new JoystickButton(rightJoystick, 2);
 		gearUpButton.whileHeld(new liftGearCommand());
 		gearDownButton.whileHeld(new dropGearCommand());
-		shootLowButton = new JoystickButton(rightJoystick, 0);
-		shootMidButton = new JoystickButton(rightJoystick, 0);
-		shootFullButton = new JoystickButton(rightJoystick, 0);	
+		
+		//Shooter Commands (Driver 2)
+		shootLowButton = new JoystickButton(leftJoystick, 4);
+		shootMidButton = new JoystickButton(leftJoystick, 3);
+		shootFullButton = new JoystickButton(leftJoystick, 5);	
 		shootLowButton.whileHeld(new shootFuelByXCommand(0.3));
 		shootMidButton.whileHeld(new shootFuelByXCommand(0.6));
 		shootFullButton.whileHeld(new shootFuelByXCommand(1.0));
-		fuelPickupButton = new JoystickButton(rightJoystick, 0);
-		fuelPickupButton.whileHeld(new FuelPickupCommand());
-		fuelConveyerOnButton = new JoystickButton(rightJoystick, 0);
-		fuelConveyerOnButton.whileHeld(new FuelConveyerPickupCommand());
-		rotateShooterLeftButton = new JoystickButton(rightJoystick, 0);
+/*		rotateShooterLeftButton = new JoystickButton(leftJoystick, 0);
 		rotateShooterLeftButton.whileHeld(new RotateShooterByXCommand(-0.5));
-		rotateShooterRightButton = new JoystickButton(rightJoystick, 0);
-		rotateShooterRightButton.whileHeld(new RotateShooterByXCommand(0.5));
+		rotateShooterRightButton = new JoystickButton(leftJoystick, 0);
+		rotateShooterRightButton.whileHeld(new RotateShooterByXCommand(0.5));*/
+		fuelPickupButton = new JoystickButton(leftJoystick, 0);
+		fuelPickupButton.whileHeld(new FuelPickupCommand());
+		fuelConveyerOnButton = new JoystickButton(leftJoystick, 2);
+		fuelConveyerOnButton.whileHeld(new FuelConveyerPickupCommand());	
 		
 	}
 }
