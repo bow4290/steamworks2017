@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4290.robot;
 
 import org.usfirst.frc.team4290.robot.commands.FuelPickupCommand;
+import org.usfirst.frc.team4290.robot.commands.RotateShooterByXCommand;
 import org.usfirst.frc.team4290.robot.commands.FuelConveyerPickupCommand;
 import org.usfirst.frc.team4290.robot.commands.TurnXDegrees;
 import org.usfirst.frc.team4290.robot.commands.dropGearCommand;
@@ -27,6 +28,8 @@ public class OI {
 	public JoystickButton shootLowButton;
 	public JoystickButton fuelPickupButton;
 	public JoystickButton fuelConveyerOnButton;
+	public JoystickButton rotateShooterLeftButton;
+	public JoystickButton rotateShooterRightButton;
 	
 	public OI(){
 		rightJoystick = new Joystick(0);
@@ -48,5 +51,10 @@ public class OI {
 		fuelPickupButton.whileHeld(new FuelPickupCommand());
 		fuelConveyerOnButton = new JoystickButton(rightJoystick, 0);
 		fuelConveyerOnButton.whileHeld(new FuelConveyerPickupCommand());
+		rotateShooterLeftButton = new JoystickButton(rightJoystick, 0);
+		rotateShooterLeftButton.whileHeld(new RotateShooterByXCommand(-0.5));
+		rotateShooterRightButton = new JoystickButton(rightJoystick, 0);
+		rotateShooterRightButton.whileHeld(new RotateShooterByXCommand(0.5));
+		
 	}
 }

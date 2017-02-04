@@ -18,14 +18,13 @@ public class ShooterSubsystem extends Subsystem {
 	// RobotMap.shooterMotor.set(0.3);
 	// }
 	public void shootXSpeed(double speed) {
-		RobotMap.shooterMotorOne.set(speed);
-		RobotMap.shooterMotorTwo.set(speed);
+		RobotMap.shooterMotor.set(speed);
 	}
-
-	public void stop() {
-		RobotMap.shooterMotorOne.set(0);
-		RobotMap.shooterMotorTwo.set(0);
+	
+	public void rotateShooter(double speed){
+		RobotMap.aimShooterMotor.set(speed);
 	}
+	
 
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
