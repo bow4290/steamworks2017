@@ -21,6 +21,8 @@ public class RobotMap {
 	public static SpeedController driveTrainLeftMotorTwo;
 	public static ADXRS450_Gyro turningGyro;
 	public static Jaguar gearLiftMotor;
+	public static Jaguar shooterMotor;
+	
 	
 	public static void init(){
 		
@@ -32,6 +34,8 @@ public class RobotMap {
 		driveTrain = new RobotDrive(driveTrainRightMotorTwo, driveTrainRightMotorOne,
 				driveTrainLeftMotorTwo, driveTrainLeftMotorOne);
 		turningGyro = new ADXRS450_Gyro();
+		shooterMotor = new Jaguar(0);
+		gearLiftMotor = new Jaguar(0);
 				
 	}
 
