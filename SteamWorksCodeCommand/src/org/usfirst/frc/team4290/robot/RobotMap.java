@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.VictorSP;
@@ -23,7 +24,8 @@ public class RobotMap {
 	public static SpeedController driveTrainLeftMotorTwo;
 	public static ADXRS450_Gyro turningGyro;
 	public static Relay gearLiftMotor;
-	public static Jaguar shooterMotor;
+	public static Spark shooterMotorOne;
+	public static Spark shooterMotorTwo;
 	public static Jaguar aimShooterMotor;
 	public static VictorSP climberMotor;
 	public static Relay fuelPickupMotor;
@@ -40,7 +42,8 @@ public class RobotMap {
 				driveTrainLeftMotorOne);
 		turningGyro = new ADXRS450_Gyro();
 		gearLiftMotor = new Relay(0);
-		shooterMotor = new Jaguar(0);
+		shooterMotorOne = new Spark(0);
+		shooterMotorTwo = new Spark(0);
 		aimShooterMotor = new Jaguar(0);
 		climberMotor = new VictorSP(0);
 		fuelPickupMotor = new Relay(0);
