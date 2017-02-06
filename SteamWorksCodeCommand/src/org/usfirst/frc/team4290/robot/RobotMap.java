@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.VictorSP;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -24,7 +25,7 @@ public class RobotMap {
 	public static Relay gearLiftMotor;
 	public static Jaguar shooterMotor;
 	public static Jaguar aimShooterMotor;
-	public static Jaguar climberMotor;
+	public static VictorSP climberMotor;
 	public static Relay fuelPickupMotor;
 	public static Jaguar fuelConveyerMotor;
 
@@ -41,7 +42,7 @@ public class RobotMap {
 		gearLiftMotor = new Relay(0);
 		shooterMotor = new Jaguar(0);
 		aimShooterMotor = new Jaguar(0);
-		climberMotor = new Jaguar(0);
+		climberMotor = new VictorSP(0);
 		fuelPickupMotor = new Relay(0);
 		fuelConveyerMotor = new Jaguar(0);
 
