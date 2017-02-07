@@ -30,6 +30,7 @@ public class RobotMap {
 	public static VictorSP climberMotor;
 	public static Relay fuelPickupMotor;
 	public static Jaguar fuelConveyerMotor;
+	public static Relay shooterAngleMotor;
 
 	public static void init() {
 
@@ -48,6 +49,7 @@ public class RobotMap {
 		climberMotor = new VictorSP(0);
 		fuelPickupMotor = new Relay(0);
 		fuelConveyerMotor = new Jaguar(0);
+		shooterAngleMotor = new Relay(0);
 
 	}
 

@@ -2,6 +2,7 @@ package org.usfirst.frc.team4290.robot.subsystems;
 
 import org.usfirst.frc.team4290.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -24,6 +25,15 @@ public class ShooterSubsystem extends Subsystem {
 	
 	public void rotateShooter(double speed){
 		RobotMap.aimShooterMotor.set(speed);
+	}
+	public void changeShooterAngle(int direction){
+		if (direction>0){
+			RobotMap.shooterAngleMotor.set(Relay.Value.kForward);
+		} else if (direction<0){
+			RobotMap.shooterAngleMotor.set(Relay.Value.kReverse);
+		} else {
+			RobotMap.shooterAngleMotor.set(Relay.Value.kOff);
+		}
 	}
 	
 
