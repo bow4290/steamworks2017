@@ -7,8 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- *
+ *      This may be referenced for autonomous later.
  */
+
 public class TurnXDegrees extends Command {
 	double currentRobotAngle=0.0;
 	double goToAngle=0.0;
@@ -18,18 +19,38 @@ public class TurnXDegrees extends Command {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
+    
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	currentRobotAngle = RobotMap.turningGyro.getAngle() % 360;
+    	
+    	//Reset the goto angle to become the ending angle (adding the new angle to the current one from a sensor)
+    	//ex. current = 200, new angle = -15, 200 + (-15) = 185 mod 360 = 185.
+    	goToAngle = (currentRobotAngle + goToAngle) % 360;
     }
+    
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-//    	while (currentRobotAngle + goToAngle > RobotMap.turningGyro.getAngle()){
-    		Robot.driveTrain.turnRight();
-    		SmartDashboard.putNumber("Real-time Angle", RobotMap.turningGyro.getAngle());
-//    	}
+    	
+    	//This tells the robot to move right or left, depending on the values from the camera.
+    	//If the sensor's direction is > the current direction, the robot will move right. Vice versa for moving left.
+    	
+    	if (goToAngle > currentRobotAngle){
+    		while (goToAngle > RobotMap.turningGyro.getAngle() % 360){
+    			Robot.driveTrain.turnRight();
+    		}
+    	}else if (goToAngle < currentRobotAngle){
+    		while (goToAngle < RobotMap.turningGyro.getAngle() % 360){
+    			Robot.driveTrain.turnLeft();
+    		}
+    	}
+    		
+    	
+//    		SmartDashboard.putNumber("Real-time Angle", RobotMap.turningGyro.getAngle());
+			
+    	
     	SmartDashboard.putNumber("FinalAngle",goToAngle);
     	
     }
@@ -47,8 +68,5 @@ public class TurnXDegrees extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
-public void setGoToAngle(double goToAngle){
-	this.goToAngle = goToAngle;
-}
 }
 
