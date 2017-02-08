@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class TurnXDegrees extends Command {
 	double currentRobotAngle=0.0;
 	double goToAngle=0.0;
+	boolean isFinished = false;
 
     public TurnXDegrees(double goToAngle) {
     	this.goToAngle = goToAngle;
@@ -41,10 +42,12 @@ public class TurnXDegrees extends Command {
     		while (goToAngle > RobotMap.turningGyro.getAngle() % 360){
     			Robot.driveTrain.turnRight();
     		}
+    		isFinished = true;
     	}else if (goToAngle < currentRobotAngle){
     		while (goToAngle < RobotMap.turningGyro.getAngle() % 360){
     			Robot.driveTrain.turnLeft();
     		}
+    		isFinished = true;
     	}
     		
     	
@@ -57,7 +60,7 @@ public class TurnXDegrees extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return isFinished;
     }
 
     // Called once after isFinished returns true
