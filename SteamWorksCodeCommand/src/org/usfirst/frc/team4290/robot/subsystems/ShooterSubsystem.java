@@ -28,11 +28,11 @@ public class ShooterSubsystem extends Subsystem {
 	}
 	public void changeShooterAngle(int direction){
 		if (direction>0){
-			RobotMap.shooterAngleMotor.set(Relay.Value.kForward);
+			RobotMap.shooterAngleMotor.set(0.3);
 		} else if (direction<0){
-			RobotMap.shooterAngleMotor.set(Relay.Value.kReverse);
+			RobotMap.shooterAngleMotor.set(-0.3);
 		} else {
-			RobotMap.shooterAngleMotor.set(Relay.Value.kOff);
+			RobotMap.shooterAngleMotor.set(0);
 		}
 	}
 	
