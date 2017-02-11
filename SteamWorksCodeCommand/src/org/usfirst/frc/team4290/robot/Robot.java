@@ -48,6 +48,7 @@ public class Robot extends IterativeRobot {
 		fuelPickupSubsystem = new FuelPickupSubsystem();
 		fuelConveyerSubsystem = new FuelConveyerSubsystem();
 		SmartDashboard.putData("Auto mode", chooser);
+		gearLift = new GearLift();
 		
 	}
 
