@@ -28,13 +28,13 @@ public class RobotMap {
 	public static Jaguar shooterMotorTwo;
 	public static Jaguar aimShooterMotor;
 	public static Spark climberMotor;
-	public static Relay fuelPickupMotor;
+	public static VictorSP fuelPickupMotor;
 	public static Spark fuelConveyerMotor;
 	public static Jaguar shooterAngleMotor;
 
 	public static void init() {
 
-		driveTrainLeftMotorOne = new Talon(4);
+		driveTrainLeftMotorOne = new Talon(0);
 		driveTrainLeftMotorTwo = new Talon(1);
 		driveTrainRightMotorOne = new Talon(2);
 		driveTrainRightMotorTwo = new Talon(3);
@@ -47,7 +47,7 @@ public class RobotMap {
 		shooterMotorTwo = new Jaguar(0);
 		aimShooterMotor = new Jaguar(0);
 		climberMotor = new Spark(0);
-		fuelPickupMotor = new Relay(0);
+		fuelPickupMotor = new VictorSP(0);
 		fuelConveyerMotor = new Spark(0);
 		shooterAngleMotor = new Jaguar(0);
 
