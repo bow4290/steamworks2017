@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4290.robot.commands;
 
 import org.usfirst.frc.team4290.robot.Robot;
+import org.usfirst.frc.team4290.robot.subsystems.GearLift;
 
 import edu.wpi.first.wpilibj.command.Command;
 

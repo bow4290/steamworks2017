@@ -38,21 +38,21 @@ public class TurnXDegrees extends Command {
     	//This tells the robot to move right or left, depending on the values from the camera.
     	//If the sensor's direction is > the current direction, the robot will move right. Vice versa for moving left.
     	
-    	if (goToAngle > currentRobotAngle){
-    		while (goToAngle > RobotMap.turningGyro.getAngle() % 360){
+//    	if (goToAngle > currentRobotAngle){
+//    		while (goToAngle > RobotMap.turningGyro.getAngle() % 360){
     			Robot.driveTrain.turnRight();
-    		}
-    		isFinished = true;
-    	}else if (goToAngle < currentRobotAngle){
-    		while (goToAngle < RobotMap.turningGyro.getAngle() % 360){
-    			Robot.driveTrain.turnLeft();
-    		}
-    		isFinished = true;
-    	}
-    		
-    	
-//    		SmartDashboard.putNumber("Real-time Angle", RobotMap.turningGyro.getAngle());
-			
+        		SmartDashboard.putNumber("right turn Angle", goToAngle);
+
+//    		}
+//    		isFinished = true;
+//    	}else if (goToAngle < currentRobotAngle){
+//    		while (goToAngle < RobotMap.turningGyro.getAngle() % 360){
+//    			Robot.driveTrain.turnLeft();
+//        		SmartDashboard.putNumber("left turn Angle", goToAngle);
+//
+//    		}
+//    		isFinished = true;
+//    	}			
     	
     	SmartDashboard.putNumber("FinalAngle",goToAngle);
     	

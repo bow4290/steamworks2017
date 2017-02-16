@@ -9,10 +9,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class ClimberSubsystem extends Subsystem {
 	public void climbUp(){
-		RobotMap.climberMotor.set(0.8);
+		RobotMap.climberMotor.set(-1);
 	}
 	public void climbDown(){
-		RobotMap.climberMotor.set(-0.5);
+		RobotMap.climberMotor.set(0.5);
 	}
 	public void stop(){
 		RobotMap.climberMotor.set(0);

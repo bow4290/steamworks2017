@@ -14,7 +14,7 @@ public class FuelConveyerSubsystem extends Subsystem {
 
 	
 	public void fuelConveyerPickup(){
-		RobotMap.fuelConveyerMotor.set(0.5);
+		RobotMap.fuelConveyerMotor.set(1.0);
 	}
 	
 	public void stop(){

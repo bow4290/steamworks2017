@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4290.robot.commands;
 
 import org.usfirst.frc.team4290.robot.Robot;
+import org.usfirst.frc.team4290.robot.subsystems.GearLift;
 
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Command;
@@ -12,7 +13,7 @@ public class dropGearCommand extends Command {
 
     public dropGearCommand() {
         // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+        // eg. requires(chassis); 
     }
 
     // Called just before this Command runs the first time

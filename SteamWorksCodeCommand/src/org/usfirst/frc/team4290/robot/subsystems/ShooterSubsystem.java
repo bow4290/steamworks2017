@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4290.robot.subsystems;
 
 import org.usfirst.frc.team4290.robot.RobotMap;
+import org.usfirst.frc.team4290.robot.commands.RotateShooterByXCommand;
 
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -20,27 +21,29 @@ public class ShooterSubsystem extends Subsystem {
 	// }
 	public void shootXSpeed(double speed) {
 		RobotMap.shooterMotorOne.set(speed);
-		RobotMap.shooterMotorTwo.set(speed);
+//		RobotMap.shooterMotorTwo.set(speed);
 	}
 	
 	public void rotateShooter(double speed){
 		RobotMap.aimShooterMotor.set(speed);
 	}
-	public void changeShooterAngle(int direction){
-		if (direction>0){
-			RobotMap.shooterAngleMotor.set(1.0);
-		} else if (direction<0){
-			RobotMap.shooterAngleMotor.set(-1.0);
-		} else {
-			RobotMap.shooterAngleMotor.set(0.0);
-		}
-	}
+//	public void changeShooterAngle(int direction){
+//		if (direction>0){
+//			RobotMap.shooterAngleMotor.set(1.0);
+//		} else if (direction<0){
+//			RobotMap.shooterAngleMotor.set(-1.0);
+//		} else {
+//			RobotMap.shooterAngleMotor.set(0.0);
+//		}
+//	}
 	
 
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
 
 	public void initDefaultCommand() {
+
+		setDefaultCommand(new RotateShooterByXCommand(0));
 		// Set the default command for a subsystem here.
 		// setDefaultCommand(new MySpecialCommand());
 	}

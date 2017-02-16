@@ -3,6 +3,8 @@ package org.usfirst.frc.team4290.robot;
 import org.usfirst.frc.team4290.robot.commands.FuelPickupCommand;
 import org.usfirst.frc.team4290.robot.commands.RotateShooterByXCommand;
 import org.usfirst.frc.team4290.robot.commands.ShooterAngleCommand;
+import org.usfirst.frc.team4290.robot.commands.ClimbDownCommand;
+import org.usfirst.frc.team4290.robot.commands.ClimbUpCommand;
 import org.usfirst.frc.team4290.robot.commands.FuelConveyerPickupCommand;
 import org.usfirst.frc.team4290.robot.commands.TurnXDegrees;
 import org.usfirst.frc.team4290.robot.commands.dropGearCommand;
@@ -34,15 +36,21 @@ public class OI {
 	public JoystickButton rotateShooterRightButton;
 	public JoystickButton shooterAngleUpButton;
 	public JoystickButton shooterAngleDownButton;
+	public JoystickButton climberUpButton;
+	public JoystickButton climberDownButton;
 	
 	public OI(){
 		//Driver Commands (Driver 1)
 		rightJoystick = new Joystick(0);
 		leftJoystick = new Joystick(1);
-		turnRightButton = new JoystickButton(rightJoystick, 6);
-		turnLeftButton = new JoystickButton(rightJoystick, 5);
-		turnRightButton.whileHeld(new TurnXDegrees(90));
-		turnLeftButton.whileHeld(new TurnXDegrees(180));
+//		turnRightButton = new JoystickButton(rightJoystick, 4);
+//		turnLeftButton = new JoystickButton(rightJoystick, 6);
+		//turnRightButton.whileHeld(new TurnXDegrees(90));
+		//turnLeftButton.whileHeld(new TurnXDegrees(180));
+		climberUpButton = new JoystickButton(rightJoystick, 5);
+		climberDownButton = new JoystickButton(rightJoystick, 4);
+		climberUpButton.whileHeld(new ClimbUpCommand());
+		climberDownButton.whileHeld(new ClimbDownCommand());
 		gearUpButton = new JoystickButton(rightJoystick, 3);
 		gearDownButton = new JoystickButton(rightJoystick, 2);
 		gearUpButton.whileHeld(new liftGearCommand());
@@ -55,18 +63,18 @@ public class OI {
 		shootLowButton.whileHeld(new shootFuelByXCommand(0.3));
 		shootMidButton.whileHeld(new shootFuelByXCommand(0.6));
 		shootFullButton.whileHeld(new shootFuelByXCommand(1.0));
-/*		rotateShooterLeftButton = new JoystickButton(leftJoystick, 0);
-		rotateShooterLeftButton.whileHeld(new RotateShooterByXCommand(-0.5));
-		rotateShooterRightButton = new JoystickButton(leftJoystick, 0);
-		rotateShooterRightButton.whileHeld(new RotateShooterByXCommand(0.5));*/
-		fuelPickupButton = new JoystickButton(leftJoystick, 0);
+		rotateShooterLeftButton = new JoystickButton(leftJoystick, 8);
+//		rotateShooterLeftButton.whileHeld(new RotateShooterByXCommand(-0.1));
+		rotateShooterRightButton = new JoystickButton(leftJoystick, 9);
+//		rotateShooterRightButton.whileHeld(new RotateShooterByXCommand(0.1));
+		fuelPickupButton = new JoystickButton(leftJoystick, 1);
 		fuelPickupButton.whileHeld(new FuelPickupCommand());
 		fuelConveyerOnButton = new JoystickButton(leftJoystick, 2);
 		fuelConveyerOnButton.whileHeld(new FuelConveyerPickupCommand());	
-		shooterAngleDownButton = new JoystickButton(leftJoystick, 0);
-		shooterAngleDownButton.whileHeld(new ShooterAngleCommand(-1));
-		shooterAngleUpButton = new JoystickButton(leftJoystick, 0);
-		shooterAngleUpButton.whileHeld(new ShooterAngleCommand(1));
+//		shooterAngleDownButton = new JoystickButton(leftJoystick, 0);
+//		shooterAngleDownButton.whileHeld(new ShooterAngleCommand(-1));
+//		shooterAngleUpButton = new JoystickButton(leftJoystick, 0);
+//		shooterAngleUpButton.whileHeld(new ShooterAngleCommand(1));
 		
 	}
 }

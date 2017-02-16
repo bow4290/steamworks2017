@@ -2,6 +2,7 @@ package org.usfirst.frc.team4290.robot.commands;
 
 import org.usfirst.frc.team4290.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -25,6 +26,8 @@ public class RotateShooterByXCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.shooterSubsystem.rotateShooter(Robot.oi.leftJoystick.getX());
+		SmartDashboard.putNumber("Rotate Shooter by", Robot.oi.leftJoystick.getX());
+
     }
 
     // Make this return true when this Command no longer needs to run execute()

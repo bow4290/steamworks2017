@@ -6,6 +6,7 @@ import org.usfirst.frc.team4290.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -25,7 +26,9 @@ public class FuelPickupSubsystem extends Subsystem {
     }
     
     public void stop(){
-    	RobotMap.fuelPickupMotor.set(0.0);
+    	RobotMap.fuelPickupMotor.set(0);
+    	SmartDashboard.putString("PICKUP", "TURN OFF");
+
     }
 }
 

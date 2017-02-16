@@ -3,6 +3,7 @@ package org.usfirst.frc.team4290.robot.commands;
 import org.usfirst.frc.team4290.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -21,6 +22,8 @@ public class FuelPickupCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.fuelPickupSubsystem.pickupFuel();
+    	SmartDashboard.putString("PICKUP", "TURN ON");
+
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -10,10 +10,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class GearLift extends Subsystem {
 	public void gearLiftUp(){
-		RobotMap.gearLiftMotor.set(1.0);
+		RobotMap.gearLiftMotor.set(0.5);
 	}
 	public void gearLiftDown(){
-		RobotMap.gearLiftMotor.set(-1.0);
+		RobotMap.gearLiftMotor.set(-0.5);
 	}
 	public void stop(){
 		RobotMap.gearLiftMotor.set(0.0);
