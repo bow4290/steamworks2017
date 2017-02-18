@@ -8,12 +8,14 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team4290.robot.subsystems.AimShooterSubsystem;
 import org.usfirst.frc.team4290.robot.subsystems.ClimberSubsystem;
 import org.usfirst.frc.team4290.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team4290.robot.subsystems.FuelPickupSubsystem;
 import org.usfirst.frc.team4290.robot.subsystems.FuelConveyerSubsystem;
 import org.usfirst.frc.team4290.robot.subsystems.GearLift;
 import org.usfirst.frc.team4290.robot.subsystems.ShooterSubsystem;
+import org.usfirst.frc.team4290.robot.subsystems.VisionPipelineSubystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -33,6 +35,8 @@ public class Robot extends IterativeRobot {
 	public static ClimberSubsystem climberSubsystem;
 	public static FuelPickupSubsystem fuelPickupSubsystem;
 	public static FuelConveyerSubsystem fuelConveyerSubsystem;
+	public static AimShooterSubsystem aimShooterSubsystem;
+	public static VisionPipelineSubystem visionPipeline;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -47,7 +51,9 @@ public class Robot extends IterativeRobot {
 		climberSubsystem = new ClimberSubsystem();
 		fuelPickupSubsystem = new FuelPickupSubsystem();
 		fuelConveyerSubsystem = new FuelConveyerSubsystem();
+		visionPipeline = new VisionPipelineSubystem();
 		gearLift = new GearLift();
+		aimShooterSubsystem = new AimShooterSubsystem();
 		SmartDashboard.putData("Auto mode", chooser);
 		
 	}

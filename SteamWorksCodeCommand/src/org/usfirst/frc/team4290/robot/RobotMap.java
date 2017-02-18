@@ -26,7 +26,8 @@ public class RobotMap {
 	public static Jaguar gearLiftMotor;
 	public static Jaguar shooterMotorOne;
 //	public static Spark shooterMotorTwo;
-	public static Jaguar aimShooterMotor;
+	public static Jaguar rotateShooterMotor;
+	public static Jaguar shooterAngleMotor;
 	public static Spark climberMotor;
 	public static VictorSP fuelPickupMotor;
 	public static Spark fuelConveyerMotor;
@@ -45,7 +46,8 @@ public class RobotMap {
 		gearLiftMotor = new Jaguar(6);
 		shooterMotorOne = new Jaguar(1);
 //		shooterMotorTwo = new Spark(5);
-		aimShooterMotor = new Jaguar(0);
+		rotateShooterMotor = new Jaguar(0);
+		shooterAngleMotor = new Jaguar(3);
 		climberMotor = new Spark(8);
 		fuelPickupMotor = new VictorSP(2);
 		fuelConveyerMotor = new Spark(7);

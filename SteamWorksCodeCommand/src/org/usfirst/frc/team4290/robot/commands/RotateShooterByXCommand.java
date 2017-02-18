@@ -8,15 +8,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  */
 public class RotateShooterByXCommand extends Command {
-
-	private double speed;
 	
     public RotateShooterByXCommand(double speed) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.shooterSubsystem);
-    	this.speed = speed;
-    	
+    	requires(Robot.shooterSubsystem);    	
     }
 
     // Called just before this Command runs the first time
@@ -25,8 +21,7 @@ public class RotateShooterByXCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shooterSubsystem.rotateShooter(Robot.oi.leftJoystick.getX());
-		SmartDashboard.putNumber("Rotate Shooter by", Robot.oi.leftJoystick.getX());
+    	Robot.shooterSubsystem.rotateShooter(Robot.oi.leftJoystick.getX() * 0.4);
 
     }
 

@@ -1,10 +1,12 @@
 package org.usfirst.frc.team4290.robot.subsystems;
 
+import org.usfirst.frc.team4290.robot.Robot;
 import org.usfirst.frc.team4290.robot.RobotMap;
 import org.usfirst.frc.team4290.robot.commands.DriveWithJoysticks;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -75,14 +77,20 @@ public class DriveTrain extends Subsystem {
 //	}
 
 	public void turnRight() {
-		RobotMap.driveTrain.arcadeDrive(0, 0.8);
+		RobotMap.driveTrain.arcadeDrive(0, 0.5);
 	}
 
 	public void turnLeft() {
-		RobotMap.driveTrain.arcadeDrive(0, -0.8);
+		RobotMap.driveTrain.arcadeDrive(0, -0.5);
 	}
 
 	public void stop() {
 		RobotMap.driveTrain.arcadeDrive(0, 0);
+	}
+	
+	public void driveTo(double x) {
+		SmartDashboard.putNumber("Turn X to center gear", x);
+
+		RobotMap.driveTrain.arcadeDrive(0, x);
 	}
 }

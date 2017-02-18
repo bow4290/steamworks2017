@@ -2,9 +2,9 @@ package org.usfirst.frc.team4290.robot;
 
 import org.usfirst.frc.team4290.robot.commands.FuelPickupCommand;
 import org.usfirst.frc.team4290.robot.commands.RotateShooterByXCommand;
-import org.usfirst.frc.team4290.robot.commands.ShooterAngleCommand;
 import org.usfirst.frc.team4290.robot.commands.ClimbDownCommand;
 import org.usfirst.frc.team4290.robot.commands.ClimbUpCommand;
+import org.usfirst.frc.team4290.robot.commands.DropGearWithCameraCommand;
 import org.usfirst.frc.team4290.robot.commands.FuelConveyerPickupCommand;
 import org.usfirst.frc.team4290.robot.commands.TurnXDegrees;
 import org.usfirst.frc.team4290.robot.commands.dropGearCommand;
@@ -14,6 +14,7 @@ import org.usfirst.frc.team4290.robot.commands.shootFuelByXCommand;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.command.Command;
 
 
 /**
@@ -38,6 +39,10 @@ public class OI {
 	public JoystickButton shooterAngleDownButton;
 	public JoystickButton climberUpButton;
 	public JoystickButton climberDownButton;
+	public JoystickButton useGearCameraButton;
+	public JoystickButton cancelGearCameraButton;
+	
+	private DropGearWithCameraCommand dropGearWithCamera;
 	
 	public OI(){
 		//Driver Commands (Driver 1)
@@ -55,6 +60,11 @@ public class OI {
 		gearDownButton = new JoystickButton(rightJoystick, 2);
 		gearUpButton.whileHeld(new liftGearCommand());
 		gearDownButton.whileHeld(new dropGearCommand());
+		
+		useGearCameraButton = new JoystickButton(rightJoystick, 10);
+		useGearCameraButton.whenPressed(getDropGearWithCamera());
+		cancelGearCameraButton = new JoystickButton(rightJoystick, 11);
+		cancelGearCameraButton.cancelWhenPressed(getDropGearWithCamera());
 		
 		//Shooter Commands (Driver 2)
 		shootLowButton = new JoystickButton(leftJoystick, 4);
@@ -76,5 +86,12 @@ public class OI {
 //		shooterAngleUpButton = new JoystickButton(leftJoystick, 0);
 //		shooterAngleUpButton.whileHeld(new ShooterAngleCommand(1));
 		
+	}
+	
+	private DropGearWithCameraCommand getDropGearWithCamera() {
+		if (null == dropGearWithCamera) {
+			dropGearWithCamera = new DropGearWithCameraCommand();
+		}
+		return dropGearWithCamera;
 	}
 }
