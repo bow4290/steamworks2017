@@ -2,6 +2,7 @@ package org.usfirst.frc.team4290.robot;
 
 import org.usfirst.frc.team4290.robot.commands.FuelPickupCommand;
 import org.usfirst.frc.team4290.robot.commands.RotateShooterByXCommand;
+import org.usfirst.frc.team4290.robot.commands.AimShooterAngleByYCommand;
 import org.usfirst.frc.team4290.robot.commands.ClimbDownCommand;
 import org.usfirst.frc.team4290.robot.commands.ClimbUpCommand;
 import org.usfirst.frc.team4290.robot.commands.DropGearWithCameraCommand;
@@ -41,6 +42,7 @@ public class OI {
 	public JoystickButton climberDownButton;
 	public JoystickButton useGearCameraButton;
 	public JoystickButton cancelGearCameraButton;
+	public JoystickButton fuelConveyerDownButton;
 	
 	private DropGearWithCameraCommand dropGearWithCamera;
 	
@@ -80,11 +82,13 @@ public class OI {
 		fuelPickupButton = new JoystickButton(leftJoystick, 1);
 		fuelPickupButton.whileHeld(new FuelPickupCommand());
 		fuelConveyerOnButton = new JoystickButton(leftJoystick, 2);
-		fuelConveyerOnButton.whileHeld(new FuelConveyerPickupCommand());	
-//		shooterAngleDownButton = new JoystickButton(leftJoystick, 0);
-//		shooterAngleDownButton.whileHeld(new ShooterAngleCommand(-1));
-//		shooterAngleUpButton = new JoystickButton(leftJoystick, 0);
-//		shooterAngleUpButton.whileHeld(new ShooterAngleCommand(1));
+		fuelConveyerOnButton.whileHeld(new FuelConveyerPickupCommand(1.0));	
+		fuelConveyerDownButton = new JoystickButton(leftJoystick, 7);
+		fuelConveyerDownButton.whileHeld(new FuelConveyerPickupCommand(-1.0));
+		shooterAngleDownButton = new JoystickButton(leftJoystick, 10);
+		shooterAngleDownButton.whileHeld(new AimShooterAngleByYCommand(-1));
+		shooterAngleUpButton = new JoystickButton(leftJoystick, 11);
+		shooterAngleUpButton.whileHeld(new AimShooterAngleByYCommand(1));
 		
 	}
 	

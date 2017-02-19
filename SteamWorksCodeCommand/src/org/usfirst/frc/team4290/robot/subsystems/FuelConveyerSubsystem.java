@@ -13,8 +13,8 @@ public class FuelConveyerSubsystem extends Subsystem {
     // here. Call these from Commands.
 
 	
-	public void fuelConveyerPickup(){
-		RobotMap.fuelConveyerMotor.set(1.0);
+	public void fuelConveyerPickup(double speed){
+		RobotMap.fuelConveyerMotor.set(speed);
 	}
 	
 	public void stop(){

@@ -24,7 +24,7 @@ public class DriveTrain extends Subsystem {
 
 	public void takeJoystickInputs(Joystick right) {
 
-		RobotMap.driveTrain.arcadeDrive(speedBuffer(right.getY(), 0.04), right.getX() * -1);
+		RobotMap.driveTrain.arcadeDrive(speedBuffer(right.getY(), 0.04), right.getX()*Math.abs(oldSpeed)*-1);
 
 	}
 
@@ -34,8 +34,9 @@ public class DriveTrain extends Subsystem {
 		double addSpeed = Math.abs(oldSpeed) * perc;
 		if (Math.abs(joy - oldSpeed) < addSpeed + 0.01) {
 			oldSpeed = joy;
-		} else if (Math.abs(oldSpeed) <= perc * 10) {
-			oldSpeed += 0.01 * Math.signum(joy - oldSpeed);
+		} else if (Math.abs(oldSpeed) < perc * 10 && Math.abs(joy) > 0.1) {
+			oldSpeed = perc * 10 * Math.signum(joy);
+//			oldSpeed += 0.01 * Math.signum(joy - oldSpeed);
 		} else {
 			oldSpeed += addSpeed * Math.signum(joy - oldSpeed);
 		}
@@ -62,19 +63,6 @@ public class DriveTrain extends Subsystem {
 		}
 		return oldSpeed;
 	}
-
-//	private double turnSpeed = 0.0;
-//
-//	private double turnBuffer(double joy) {
-//		if (joy == turnSpeed) {
-//
-//		} else if (joy > turnSpeed) {
-//			turnSpeed += 0.03;
-//		} else if (joy < turnSpeed) {
-//			turnSpeed -= 0.03;
-//		}
-//		return turnSpeed;
-//	}
 
 	public void turnRight() {
 		RobotMap.driveTrain.arcadeDrive(0, 0.5);

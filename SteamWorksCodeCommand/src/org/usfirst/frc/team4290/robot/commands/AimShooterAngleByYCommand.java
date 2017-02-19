@@ -3,16 +3,19 @@ package org.usfirst.frc.team4290.robot.commands;
 import org.usfirst.frc.team4290.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
 public class AimShooterAngleByYCommand extends Command {
 
-    public AimShooterAngleByYCommand() {
+	private double speed;
+    public AimShooterAngleByYCommand(double speed) {
+    	this.speed = speed;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.aimShooterSubsystem);    	
+//    	requires(Robot.aimShooterSubsystem);    	
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +24,9 @@ public class AimShooterAngleByYCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.aimShooterSubsystem.aimShooter(Robot.oi.leftJoystick.getY() * 0.4);
+    	SmartDashboard.putNumber("Shoot Angle", speed);
+//    	Robot.aimShooterSubsystem.aimShooter(Robot.oi.leftJoystick.getY() * 0.4);
+    	Robot.aimShooterSubsystem.aimShooter(speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()

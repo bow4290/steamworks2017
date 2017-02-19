@@ -16,7 +16,7 @@ public class AimShooterSubsystem extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new AimShooterAngleByYCommand());
+//    	setDefaultCommand(new AimShooterAngleByYCommand());
     }
     
     public void aimShooter(double speed){

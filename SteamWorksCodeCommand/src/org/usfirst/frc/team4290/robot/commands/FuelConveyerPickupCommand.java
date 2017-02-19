@@ -10,7 +10,10 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class FuelConveyerPickupCommand extends Command {
 
-    public FuelConveyerPickupCommand() {
+	private double speed = 0.0;
+	
+    public FuelConveyerPickupCommand(double speed) {
+    	this.speed = speed;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -22,7 +25,7 @@ public class FuelConveyerPickupCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	
-    	Robot.fuelConveyerSubsystem.fuelConveyerPickup();
+    	Robot.fuelConveyerSubsystem.fuelConveyerPickup(speed);
     	
     	
     }
