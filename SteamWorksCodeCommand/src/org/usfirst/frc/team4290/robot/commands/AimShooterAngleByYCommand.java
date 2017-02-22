@@ -26,7 +26,7 @@ public class AimShooterAngleByYCommand extends Command {
     protected void execute() {
     	SmartDashboard.putNumber("Shoot Angle", speed);
 //    	Robot.aimShooterSubsystem.aimShooter(Robot.oi.leftJoystick.getY() * 0.4);
-    	Robot.aimShooterSubsystem.aimShooter(speed);
+    	Robot.aimShooterSubsystem.aimShooter(speed); 
     }
 
     // Make this return true when this Command no longer needs to run execute()

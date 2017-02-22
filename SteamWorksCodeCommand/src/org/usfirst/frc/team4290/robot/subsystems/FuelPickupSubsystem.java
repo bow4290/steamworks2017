@@ -22,7 +22,11 @@ public class FuelPickupSubsystem extends Subsystem {
     }
     
     public void pickupFuel(){
-    	RobotMap.fuelPickupMotor.set(1.0);
+    	RobotMap.fuelPickupMotor.set(1);
+    }
+    
+    public void reverseFuel(){
+    	RobotMap.fuelPickupMotor.set(-1.0);
     }
     
     public void stop(){

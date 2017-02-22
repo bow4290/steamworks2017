@@ -1,13 +1,19 @@
 
 package org.usfirst.frc.team4290.robot;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Sendable;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team4290.robot.commands.AutonomousLeftGearDrop;
+import org.usfirst.frc.team4290.robot.commands.AutonomousMiddleGearDrop;
+import org.usfirst.frc.team4290.robot.commands.AutonomousRightGearDrop;
 import org.usfirst.frc.team4290.robot.subsystems.AimShooterSubsystem;
 import org.usfirst.frc.team4290.robot.subsystems.ClimberSubsystem;
 import org.usfirst.frc.team4290.robot.subsystems.DriveTrain;
@@ -37,6 +43,12 @@ public class Robot extends IterativeRobot {
 	public static FuelConveyerSubsystem fuelConveyerSubsystem;
 	public static AimShooterSubsystem aimShooterSubsystem;
 	public static VisionPipelineSubystem visionPipeline;
+	
+	private static UsbCamera shooterCamera;
+	
+	public static SendableChooser autoChooser;
+	private static int isMirrored = 1;
+	public static SendableChooser redBlueChooser;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -56,6 +68,16 @@ public class Robot extends IterativeRobot {
 		aimShooterSubsystem = new AimShooterSubsystem();
 		SmartDashboard.putData("Auto mode", chooser);
 		
+		autoChooser = new SendableChooser();
+		autoChooser.addObject("Left Gear",new AutonomousLeftGearDrop());
+		autoChooser.addObject("Middle Gear",new AutonomousMiddleGearDrop());
+		autoChooser.addObject("Right Gear",new AutonomousRightGearDrop());
+		SmartDashboard.putData("Autonomous Mode", autoChooser);
+		
+		redBlueChooser = new SendableChooser();
+		redBlueChooser.addObject("Red", isMirrored = 1);
+		redBlueChooser.addObject("Blue", isMirrored = -1);
+		SmartDashboard.putData("Alliance Color", redBlueChooser);
 	}
 
 	/**
@@ -88,7 +110,14 @@ public class Robot extends IterativeRobot {
 	public void autonomousInit() {
 		autonomousCommand = chooser.getSelected();
 
-		/*
+//		autonomousCommand = new AutonomousRightGearDrop(1);
+		
+		
+		autonomousCommand = (Command) autoChooser.getSelected();
+		
+		SmartDashboard.putString("Chooser", autoChooser.getSelected().toString());
+		autonomousCommand.start();
+/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
 		 * = new MyAutoCommand(); break; case "Default Auto": default:
@@ -116,6 +145,8 @@ public class Robot extends IterativeRobot {
 		// this line or comment it out.
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
+//		shooterCamera = CameraServer.getInstance().startAutomaticCapture();
+//		shooterCamera.setResolution(640, 480);
 	}
 
 	/**

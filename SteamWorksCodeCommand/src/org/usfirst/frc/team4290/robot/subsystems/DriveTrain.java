@@ -24,13 +24,13 @@ public class DriveTrain extends Subsystem {
 
 	public void takeJoystickInputs(Joystick right) {
 
-		RobotMap.driveTrain.arcadeDrive(speedBuffer(right.getY(), 0.04), right.getX()*Math.abs(oldSpeed)*-1);
+		RobotMap.driveTrain.arcadeDrive(speedBuffer(right.getY(), 0.04), right.getX()*-1);
 
 	}
 
 	private double oldSpeed = 0.0;
 
-	private double speedBuffer(double joy, double perc) {
+	public double speedBuffer(double joy, double perc) {
 		double addSpeed = Math.abs(oldSpeed) * perc;
 		if (Math.abs(joy - oldSpeed) < addSpeed + 0.01) {
 			oldSpeed = joy;
@@ -64,7 +64,7 @@ public class DriveTrain extends Subsystem {
 		return oldSpeed;
 	}
 
-	public void turnRight() {
+	public void turnRight(double speed) {
 		RobotMap.driveTrain.arcadeDrive(0, 0.5);
 	}
 
@@ -76,9 +76,9 @@ public class DriveTrain extends Subsystem {
 		RobotMap.driveTrain.arcadeDrive(0, 0);
 	}
 	
-	public void driveTo(double x) {
+	public void driveTo(double x, double y) {
 		SmartDashboard.putNumber("Turn X to center gear", x);
 
-		RobotMap.driveTrain.arcadeDrive(0, x);
+		RobotMap.driveTrain.arcadeDrive(x, y);
 	}
 }

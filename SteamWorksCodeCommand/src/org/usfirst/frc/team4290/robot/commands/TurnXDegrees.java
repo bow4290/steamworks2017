@@ -40,8 +40,10 @@ public class TurnXDegrees extends Command {
     	
 //    	if (goToAngle > currentRobotAngle){
 //    		while (goToAngle > RobotMap.turningGyro.getAngle() % 360){
-    			Robot.driveTrain.turnRight();
+    			Robot.driveTrain.turnRight(1);
         		SmartDashboard.putNumber("right turn Angle", goToAngle);
+        		SmartDashboard.putNumber("Current Angle", RobotMap.turningGyro.getAngle() % 360);
+
 
 //    		}
 //    		isFinished = true;

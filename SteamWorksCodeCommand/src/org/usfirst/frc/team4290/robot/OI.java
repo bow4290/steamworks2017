@@ -50,9 +50,9 @@ public class OI {
 		//Driver Commands (Driver 1)
 		rightJoystick = new Joystick(0);
 		leftJoystick = new Joystick(1);
-//		turnRightButton = new JoystickButton(rightJoystick, 4);
+		turnRightButton = new JoystickButton(rightJoystick, 7);
 //		turnLeftButton = new JoystickButton(rightJoystick, 6);
-		//turnRightButton.whileHeld(new TurnXDegrees(90));
+		turnRightButton.whileHeld(new TurnXDegrees(90));
 		//turnLeftButton.whileHeld(new TurnXDegrees(180));
 		climberUpButton = new JoystickButton(rightJoystick, 5);
 		climberDownButton = new JoystickButton(rightJoystick, 4);

@@ -6,9 +6,13 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class AutonomousLeftGearDrop extends CommandGroup {
-    public AutonomousLeftGearDrop() {
-    	addSequential(new MoveRobotByXAndYCommand(0.7, 0), 2);
-    	addSequential(new TurnXDegrees(-20));
+    public AutonomousLeftGearDrop() {   
+    	
+    	addSequential(new MoveRobotByXAndYCommand(-0.6, 0.1), 3);
+    	addSequential(new TurnXDegrees(-20), 1.5);
+//    	addSequential(new DropGearWithCameraCommand());
+//    	addSequential(new liftGearCommand(), 0.3);
+    	addSequential(new MoveRobotByXAndYCommand(-0.4, 0), 2);
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

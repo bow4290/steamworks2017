@@ -26,9 +26,11 @@ public class DropGearWithCameraCommand extends Command {
 
 	private VisionThread visionThread;
 	private double centerX = 0.0;
+	private double tapeDistance = 0.0;
 	private final Object imgLock = new Object();
 	UsbCamera camera;
 	private boolean isFinished = false;
+	private boolean isCentered= false;
 	
     public DropGearWithCameraCommand() {
         // Use requires() here to declare subsystem dependencies
@@ -37,6 +39,7 @@ public class DropGearWithCameraCommand extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	isCentered = false;
     	isFinished = false;
     	
 	    camera = CameraServer.getInstance().startAutomaticCapture();
@@ -45,11 +48,12 @@ public class DropGearWithCameraCommand extends Command {
     	visionThread = new VisionThread(camera, new GearPipeline(), pipeline -> {
             if (!pipeline.findContoursOutput().isEmpty()) {
 	        	if (pipeline.findContoursOutput().size() > 1) {
-	                Rect rectOne = Imgproc.boundingRect(pipeline.findContoursOutput().get(0));
-	                Rect rectTwo = Imgproc.boundingRect(pipeline.findContoursOutput().get(1));
+	                Rect rectOne = Imgproc.boundingRect(pipeline.findContoursOutput().get(1));
+	                Rect rectTwo = Imgproc.boundingRect(pipeline.findContoursOutput().get(0));
 					synchronized (imgLock) {
 						double centerRectOne = rectOne.x + (rectOne.width / 2);
 						double centerRectTwo = rectTwo.x + (rectTwo.width / 2);
+						tapeDistance = Math.abs(centerRectTwo - centerRectOne);
 	                    centerX = (centerRectOne + centerRectTwo) / 2;
 	                }
 	        	} else {
@@ -109,21 +113,37 @@ public class DropGearWithCameraCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	double centerX;
+    	double tapeDistance;
     	synchronized (imgLock) {
     		centerX = this.centerX;
+    		tapeDistance = this.tapeDistance;
     	}
+    	
     	double turn = centerX - (640.0 / 2);
     	
 		SmartDashboard.putNumber("Center",centerX);
 		SmartDashboard.putNumber("Turn by", turn);
+		SmartDashboard.putNumber("Tape Distance", tapeDistance);
 
     	
-    	if (turn != 0.0) {
-//        	Robot.driveTrain.driveTo(turn * 0.005);
+    	if (Math.abs(turn) >= 10.0 && !isCentered) {
+        	Robot.driveTrain.driveTo(-0.5, Math.signum(turn) * -0.5);
+		} else if (Math.abs(turn) < 120.0){
+			Robot.driveTrain.driveTo(-0.5, 0);
+			isCentered = true;
 		} else {
-			SmartDashboard.putString("CENTER FOUND", "DONE");
 			isFinished = true;
 		}
+    	
+//    	if (isCentered) {
+//    		if (tapeDistance > 0) {
+//    			SmartDashboard.putNumber("Tape Distance", tapeDistance);
+//
+//    			Robot.driveTrain.driveTo(0.3, 0);
+//    		} else {
+//    			isFinished = true;
+//    		}
+//    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
