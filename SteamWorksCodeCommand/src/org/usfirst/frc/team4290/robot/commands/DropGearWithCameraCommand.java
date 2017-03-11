@@ -128,9 +128,9 @@ public class DropGearWithCameraCommand extends Command {
 
     	// BEFORE COMP ADD NEGATIVE BACK
     	if (Math.abs(turn) >= 5.0 && !isCentered) {
-        	Robot.driveTrain.driveTo(0.6, Math.signum(turn) * -0.5);
+        	Robot.driveTrain.driveTo(-0.6, Math.signum(turn) * 0.5);
 		} else if (Math.abs(turn) < 50.0){
-			Robot.driveTrain.driveTo(0.6, 0);
+			Robot.driveTrain.driveTo(-0.6, 0);
 			isCentered = true;
 		} else {
 			isFinished = true;

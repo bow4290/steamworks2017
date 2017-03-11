@@ -18,17 +18,18 @@ import edu.wpi.first.wpilibj.VictorSP;
 public class RobotMap {
 	public static RobotDrive driveTrain;
 
-//	public static SpeedController driveTrainRightMotorOne;
-//	public static SpeedController driveTrainRightMotorTwo;
-//	public static SpeedController driveTrainLeftMotorOne;
-//	public static SpeedController driveTrainLeftMotorTwo;
+	public static SpeedController driveTrainRightMotorOne;
+	public static SpeedController driveTrainRightMotorTwo;
+	public static SpeedController driveTrainLeftMotorOne;
+	public static SpeedController driveTrainLeftMotorTwo;
 	
+	//TODO
 	//REPLACE BEFORE COMP 
 	// test robot motor controllers
-	public static SpeedController testDriveRightMotorOne;
-	public static SpeedController testDriveRightMotorTwo;
-	public static SpeedController testDriveLeftMotorOne;
-	public static SpeedController testDriveLeftMotorTwo;
+//	public static SpeedController testDriveRightMotorOne;
+//	public static SpeedController testDriveRightMotorTwo;
+//	public static SpeedController testDriveLeftMotorOne;
+//	public static SpeedController testDriveLeftMotorTwo;
 	
 	public static ADXRS450_Gyro turningGyro;
 	public static Jaguar gearLiftMotor;
@@ -43,20 +44,23 @@ public class RobotMap {
 
 	public static void init() {
 
-//		driveTrainLeftMotorOne = new Talon(4);
-//		driveTrainLeftMotorTwo = new Talon(11);
-//		driveTrainRightMotorOne = new Talon(5);
-//		driveTrainRightMotorTwo = new Talon(10);
-//		driveTrain = new RobotDrive(driveTrainRightMotorTwo, driveTrainRightMotorOne, driveTrainLeftMotorTwo,
-//				driveTrainLeftMotorOne);
+		//TODO uncomment for COMP
+		driveTrainLeftMotorOne = new Talon(4);
+		driveTrainLeftMotorTwo = new Talon(11);
+		driveTrainRightMotorOne = new Talon(5);
+		driveTrainRightMotorTwo = new Talon(10);
+		driveTrain = new RobotDrive(driveTrainRightMotorTwo, driveTrainRightMotorOne, driveTrainLeftMotorTwo,
+				driveTrainLeftMotorOne);
 		
 		// TODO 
 		// COMMENT OUT BEFOE COMP
 		// use above motors for comp
-		testDriveRightMotorOne = new Jaguar(0);
-		testDriveRightMotorTwo = new Jaguar(1);
-		testDriveLeftMotorOne = new Talon(2);
-		testDriveLeftMotorTwo = new Talon(3);
+//		testDriveRightMotorOne = new Jaguar(0);
+//		testDriveRightMotorTwo = new Jaguar(1);
+//		testDriveLeftMotorOne = new Spark(2);
+//		testDriveLeftMotorTwo = new Spark(3);
+//		driveTrain = new RobotDrive(testDriveLeftMotorOne, testDriveLeftMotorTwo, 
+//				testDriveRightMotorOne, testDriveRightMotorTwo);
 		
 		turningGyro = new ADXRS450_Gyro();
 		gearLiftMotor = new Jaguar(6);

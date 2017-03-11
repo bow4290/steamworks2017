@@ -8,12 +8,28 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutonomousRightGearDrop extends CommandGroup {
 
     public AutonomousRightGearDrop() {
+    	//TODO uncomment for COMP
     	// ADD BACK FOR REAL BOT
-//    	addSequential(new MoveRobotByXAndYCommand(-0.6, 0.1), 0.25);
-//    	addSequential(new MoveRobotByXAndYCommand(-0.8, 0.2), 1);
-//    	addSequential(new MoveRobotByXAndYCommand(-0.6, 0.1), 0.25);
-//    	addSequential(new MoveRobotByXAndYCommand(0.0, 0.6), 0.65);
-//    	addSequential(new MoveRobotByXAndYCommand(-0.6, 0.0), 0.5);
+    	addSequential(new MoveRobotByXAndYCommand(-0.6, 0.1), 0.25);
+    	addSequential(new MoveRobotByXAndYCommand(-0.8, 0.2), 1);
+    	addSequential(new MoveRobotByXAndYCommand(-0.6, 0.1), 0.25);
+    	addSequential(new MoveRobotByXAndYCommand(0.0, 0.6), 0.65);
+    	addSequential(new MoveRobotByXAndYCommand(-0.6, 0.0), 0.5);
+    	addSequential(new MoveRobotByXAndYCommand(0.0, 0.0), 0.25);
+    	addSequential(new DropGearWithCameraCommand());
+    	addSequential(new MoveRobotByXAndYCommand(- 0.6,0.0), 0.25);
+    	addSequential(new MoveRobotByXAndYCommand(0.0, 0.0), 0.2);
+    	addParallel(new liftGearCommand(), 1);
+    	addSequential(new MoveRobotByXAndYCommand(0.5, 0), 1);
+    	addSequential(new dropGearCommand(), 0.5);
+    	
+    	//TODO comment out for COMP
+    	//FOR TESTING ONLY
+//    	addSequential(new MoveRobotByXAndYCommand(0.6, 0.1), 0.25);
+//    	addSequential(new MoveRobotByXAndYCommand(0.8, 0.2), 1);
+//    	addSequential(new MoveRobotByXAndYCommand(0.6, 0.1), 0.25);
+//    	addSequential(new MoveRobotByXAndYCommand(0.0, -0.6), 0.65);
+//    	addSequential(new MoveRobotByXAndYCommand(0.6, 0.0), 0.5);
 //    	addSequential(new MoveRobotByXAndYCommand(0.0, 0.0), 0.25);
 //    	addSequential(new DropGearWithCameraCommand());
 //    	addSequential(new MoveRobotByXAndYCommand(- 0.6,0.0), 0.25);
@@ -21,20 +37,6 @@ public class AutonomousRightGearDrop extends CommandGroup {
 //    	addParallel(new liftGearCommand(), 1);
 //    	addSequential(new MoveRobotByXAndYCommand(0.5, 0), 3);
 //    	addSequential(new dropGearCommand(), 0.5);
-    	
-    	//FOR TESTING ONLY
-    	addSequential(new MoveRobotByXAndYCommand(0.6, 0.1), 0.25);
-    	addSequential(new MoveRobotByXAndYCommand(0.8, 0.2), 1);
-    	addSequential(new MoveRobotByXAndYCommand(0.6, 0.1), 0.25);
-    	addSequential(new MoveRobotByXAndYCommand(0.0, -0.6), 0.65);
-    	addSequential(new MoveRobotByXAndYCommand(0.6, 0.0), 0.5);
-    	addSequential(new MoveRobotByXAndYCommand(0.0, 0.0), 0.25);
-    	addSequential(new DropGearWithCameraCommand());
-    	addSequential(new MoveRobotByXAndYCommand(- 0.6,0.0), 0.25);
-    	addSequential(new MoveRobotByXAndYCommand(0.0, 0.0), 0.2);
-    	addParallel(new liftGearCommand(), 1);
-    	addSequential(new MoveRobotByXAndYCommand(0.5, 0), 3);
-    	addSequential(new dropGearCommand(), 0.5);
 
         // Add Commands here:
         // e.g. addSequential(new Command1());

@@ -8,8 +8,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutonomousMiddleGearDrop extends CommandGroup {
 
     public AutonomousMiddleGearDrop() {
+    	//TODO uncomment for COMP
     	addSequential(new MoveRobotByXAndYCommand(-0.6, 0.25), 2.25);
-    	
 //    	addSequential(new MoveRobotByXAndYCommand(0.5, -0.1), 2);
     	addSequential(new MoveRobotByXAndYCommand(0.0, 0.0), 0.5);
     	addSequential(new DropGearWithCameraCommand());
@@ -18,6 +18,17 @@ public class AutonomousMiddleGearDrop extends CommandGroup {
 //    	addSequential(new liftGearCommand(), 0.3);
     	addSequential(new MoveRobotByXAndYCommand(0.4, 0), 3);
     	addSequential(new dropGearCommand(), 0.3);
+    	
+    	//TODO comment out for COMP
+//    	addSequential(new MoveRobotByXAndYCommand(0.6, 0.25), 2.25);
+////    	addSequential(new MoveRobotByXAndYCommand(0.5, -0.1), 2);
+//    	addSequential(new MoveRobotByXAndYCommand(0.0, 0.0), 0.5);
+//    	addSequential(new DropGearWithCameraCommand());
+//    	addSequential(new MoveRobotByXAndYCommand(0.0, 0.0), 0.25);
+//    	addParallel(new liftGearCommand(), 0.3);
+////    	addSequential(new liftGearCommand(), 0.3);
+//    	addSequential(new MoveRobotByXAndYCommand(-0.4, 0), 3);
+//    	addSequential(new dropGearCommand(), 0.3);
 
     	// Add Commands here:
         // e.g. addSequential(new Command1());
