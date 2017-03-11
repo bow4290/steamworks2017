@@ -1,16 +1,22 @@
 
 package org.usfirst.frc.team4290.robot;
 
+import edu.wpi.cscore.CvSource;
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Sendable;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.opencv.core.Mat;
+import org.opencv.core.Point;
+import org.opencv.core.Scalar;
+import org.opencv.imgproc.Imgproc;
 import org.usfirst.frc.team4290.robot.commands.AutonomousLeftGearDrop;
 import org.usfirst.frc.team4290.robot.commands.AutonomousMiddleGearDrop;
 import org.usfirst.frc.team4290.robot.commands.AutonomousRightGearDrop;
@@ -46,9 +52,9 @@ public class Robot extends IterativeRobot {
 	
 	private static UsbCamera shooterCamera;
 	
-	public static SendableChooser autoChooser;
+	public static SendableChooser<CommandGroup> autoChooser;
 	private static int isMirrored = 1;
-	public static SendableChooser redBlueChooser;
+	public static SendableChooser<String> redBlueChooser;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -68,15 +74,15 @@ public class Robot extends IterativeRobot {
 		aimShooterSubsystem = new AimShooterSubsystem();
 		SmartDashboard.putData("Auto mode", chooser);
 		
-		autoChooser = new SendableChooser();
+		autoChooser = new SendableChooser<>();
 		autoChooser.addObject("Left Gear",new AutonomousLeftGearDrop());
 		autoChooser.addObject("Middle Gear",new AutonomousMiddleGearDrop());
 		autoChooser.addObject("Right Gear",new AutonomousRightGearDrop());
 		SmartDashboard.putData("Autonomous Mode", autoChooser);
 		
-		redBlueChooser = new SendableChooser();
-		redBlueChooser.addObject("Red", isMirrored = 1);
-		redBlueChooser.addObject("Blue", isMirrored = -1);
+		redBlueChooser = new SendableChooser<>();
+//		redBlueChooser.addObject("Red", isMirrored = 1);
+//		redBlueChooser.addObject("Blue", isMirrored = -1);
 		SmartDashboard.putData("Alliance Color", redBlueChooser);
 	}
 
@@ -113,9 +119,9 @@ public class Robot extends IterativeRobot {
 //		autonomousCommand = new AutonomousRightGearDrop(1);
 		
 		
-		autonomousCommand = (Command) autoChooser.getSelected();
+		autonomousCommand = new AutonomousRightGearDrop();// autoChooser.getSelected();
 		
-		SmartDashboard.putString("Chooser", autoChooser.getSelected().toString());
+//		SmartDashboard.putString("Chooser", autoChooser.getSelected().toString());
 		autonomousCommand.start();
 /*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
@@ -145,8 +151,13 @@ public class Robot extends IterativeRobot {
 		// this line or comment it out.
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
-//		shooterCamera = CameraServer.getInstance().startAutomaticCapture();
-//		shooterCamera.setResolution(640, 480);
+		shooterCamera = CameraServer.getInstance().startAutomaticCapture();
+		shooterCamera.setResolution(640, 480);
+//		Mat mat = new Mat();
+//
+//		CvSource outputStream = CameraServer.getInstance().putVideo("Rectangle", 640, 480);
+//		Imgproc.rectangle(mat, new Point(10, 10), new Point(10, 10), new Scalar(255, 255, 255), 25);
+//		outputStream.putFrame(mat);
 	}
 
 	/**

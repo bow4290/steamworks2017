@@ -15,7 +15,7 @@ public class AimShooterAngleByYCommand extends Command {
     	this.speed = speed;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-//    	requires(Robot.aimShooterSubsystem);    	
+    	requires(Robot.aimShooterSubsystem);    	
     }
 
     // Called just before this Command runs the first time
@@ -25,8 +25,8 @@ public class AimShooterAngleByYCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	SmartDashboard.putNumber("Shoot Angle", speed);
-//    	Robot.aimShooterSubsystem.aimShooter(Robot.oi.leftJoystick.getY() * 0.4);
-    	Robot.aimShooterSubsystem.aimShooter(speed); 
+    	Robot.aimShooterSubsystem.aimShooter(Robot.oi.leftJoystick.getY() * -0.4);
+//    	Robot.aimShooterSubsystem.aimShooter(speed); 
     }
 
     // Make this return true when this Command no longer needs to run execute()

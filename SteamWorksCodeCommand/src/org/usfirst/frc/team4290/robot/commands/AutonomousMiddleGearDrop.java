@@ -14,9 +14,11 @@ public class AutonomousMiddleGearDrop extends CommandGroup {
     	addSequential(new MoveRobotByXAndYCommand(0.0, 0.0), 0.5);
     	addSequential(new DropGearWithCameraCommand());
     	addSequential(new MoveRobotByXAndYCommand(0.0, 0.0), 0.25);
-    	addParallel(new liftGearCommand(), 2);
+    	addParallel(new liftGearCommand(), 0.3);
 //    	addSequential(new liftGearCommand(), 0.3);
     	addSequential(new MoveRobotByXAndYCommand(0.4, 0), 3);
+    	addSequential(new dropGearCommand(), 0.3);
+
     	// Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

@@ -50,9 +50,10 @@ public class OI {
 		//Driver Commands (Driver 1)
 		rightJoystick = new Joystick(0);
 		leftJoystick = new Joystick(1);
-		turnRightButton = new JoystickButton(rightJoystick, 7);
+//		turnRightButton = new JoystickButton(rightJoystick, 7);
+//		turnRightButton.whileHeld(new TurnXDegrees(90));
+
 //		turnLeftButton = new JoystickButton(rightJoystick, 6);
-		turnRightButton.whileHeld(new TurnXDegrees(90));
 		//turnLeftButton.whileHeld(new TurnXDegrees(180));
 		climberUpButton = new JoystickButton(rightJoystick, 5);
 		climberDownButton = new JoystickButton(rightJoystick, 4);
@@ -69,26 +70,26 @@ public class OI {
 		cancelGearCameraButton.cancelWhenPressed(getDropGearWithCamera());
 		
 		//Shooter Commands (Driver 2)
-		shootLowButton = new JoystickButton(leftJoystick, 4);
-		shootMidButton = new JoystickButton(leftJoystick, 3);
-		shootFullButton = new JoystickButton(leftJoystick, 5);	
-		shootLowButton.whileHeld(new shootFuelByXCommand(0.3));
+//		shootLowButton = new JoystickButton(leftJoystick, 4);
+		//		shootLowButton.whileHeld(new shootFuelByXCommand(0.3));
+		shootMidButton = new JoystickButton(leftJoystick, 4);
 		shootMidButton.whileHeld(new shootFuelByXCommand(0.6));
+		shootFullButton = new JoystickButton(leftJoystick, 5);	
 		shootFullButton.whileHeld(new shootFuelByXCommand(1.0));
 		rotateShooterLeftButton = new JoystickButton(leftJoystick, 8);
 //		rotateShooterLeftButton.whileHeld(new RotateShooterByXCommand(-0.1));
 		rotateShooterRightButton = new JoystickButton(leftJoystick, 9);
 //		rotateShooterRightButton.whileHeld(new RotateShooterByXCommand(0.1));
-		fuelPickupButton = new JoystickButton(leftJoystick, 1);
+		fuelPickupButton = new JoystickButton(leftJoystick, 2);
 		fuelPickupButton.whileHeld(new FuelPickupCommand());
-		fuelConveyerOnButton = new JoystickButton(leftJoystick, 2);
+		fuelConveyerOnButton = new JoystickButton(leftJoystick, 1);
 		fuelConveyerOnButton.whileHeld(new FuelConveyerPickupCommand(1.0));	
 		fuelConveyerDownButton = new JoystickButton(leftJoystick, 7);
 		fuelConveyerDownButton.whileHeld(new FuelConveyerPickupCommand(-1.0));
-		shooterAngleDownButton = new JoystickButton(leftJoystick, 10);
-		shooterAngleDownButton.whileHeld(new AimShooterAngleByYCommand(-1));
-		shooterAngleUpButton = new JoystickButton(leftJoystick, 11);
-		shooterAngleUpButton.whileHeld(new AimShooterAngleByYCommand(1));
+//		shooterAngleDownButton = new JoystickButton(leftJoystick, 10);
+//		shooterAngleDownButton.whileHeld(new AimShooterAngleByYCommand(-1));
+//		shooterAngleUpButton = new JoystickButton(leftJoystick, 11);
+//		shooterAngleUpButton.whileHeld(new AimShooterAngleByYCommand(1));
 		
 	}
 	

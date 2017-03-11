@@ -43,7 +43,8 @@ public class DropGearWithCameraCommand extends Command {
     	isFinished = false;
     	
 	    camera = CameraServer.getInstance().startAutomaticCapture();
-	    camera.setResolution(640, 480);
+	    camera.setResolution(320, 240);
+	    
 	    
     	visionThread = new VisionThread(camera, new GearPipeline(), pipeline -> {
             if (!pipeline.findContoursOutput().isEmpty()) {
@@ -54,7 +55,7 @@ public class DropGearWithCameraCommand extends Command {
 						double centerRectOne = rectOne.x + (rectOne.width / 2);
 						double centerRectTwo = rectTwo.x + (rectTwo.width / 2);
 						tapeDistance = Math.abs(centerRectTwo - centerRectOne);
-	                    centerX = (centerRectOne + centerRectTwo) / 2;
+	                    centerX = (centerRectOne + centerRectTwo) / 2 - 10;
 	                }
 	        	} else {
 	                Rect rectOne = Imgproc.boundingRect(pipeline.findContoursOutput().get(0));
@@ -119,17 +120,17 @@ public class DropGearWithCameraCommand extends Command {
     		tapeDistance = this.tapeDistance;
     	}
     	
-    	double turn = centerX - (640.0 / 2);
+    	double turn = centerX - (320.0 / 2)  * -1;  // BEFORE COMP REMOVE -1
     	
 		SmartDashboard.putNumber("Center",centerX);
 		SmartDashboard.putNumber("Turn by", turn);
 		SmartDashboard.putNumber("Tape Distance", tapeDistance);
 
-    	
-    	if (Math.abs(turn) >= 10.0 && !isCentered) {
-        	Robot.driveTrain.driveTo(-0.5, Math.signum(turn) * -0.5);
-		} else if (Math.abs(turn) < 120.0){
-			Robot.driveTrain.driveTo(-0.5, 0);
+    	// BEFORE COMP ADD NEGATIVE BACK
+    	if (Math.abs(turn) >= 5.0 && !isCentered) {
+        	Robot.driveTrain.driveTo(0.6, Math.signum(turn) * -0.5);
+		} else if (Math.abs(turn) < 50.0){
+			Robot.driveTrain.driveTo(0.6, 0);
 			isCentered = true;
 		} else {
 			isFinished = true;

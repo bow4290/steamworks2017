@@ -40,7 +40,7 @@ public class DriveTrain extends Subsystem {
 		} else {
 			oldSpeed += addSpeed * Math.signum(joy - oldSpeed);
 		}
-		return oldSpeed;
+		return oldSpeed * 0.9;
 	}
 
 	private double speedBuffer(double joy) {
