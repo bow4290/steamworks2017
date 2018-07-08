@@ -19,13 +19,13 @@ public class RobotMap {
 	public static RobotDrive driveTrain;
 
 	public static SpeedController driveTrainRightMotorOne;
-	public static SpeedController driveTrainRightMotorTwo;
+//	public static SpeedController driveTrainRightMotorTwo;
 	public static SpeedController driveTrainLeftMotorOne;
-	public static SpeedController driveTrainLeftMotorTwo;
+//	public static SpeedController driveTrainLeftMotorTwo;
 	public static ADXRS450_Gyro turningGyro;
 	public static Jaguar gearLiftMotor;
 	public static Jaguar shooterMotorOne;
-//	public static Spark shooterMotorTwo;
+	public static Spark shooterMotorTwo;
 	public static Jaguar rotateShooterMotor;
 	public static Jaguar shooterAngleMotor;
 	public static Spark climberMotor;
@@ -36,21 +36,24 @@ public class RobotMap {
 	public static void init() {
 
 		driveTrainLeftMotorOne = new Talon(4);
-		driveTrainLeftMotorTwo = new Talon(11);
+//		driveTrainLeftMotorTwo = new Talon(11);
 		driveTrainRightMotorOne = new Talon(5);
-		driveTrainRightMotorTwo = new Talon(10);
+//		driveTrainRightMotorTwo = new Talon(10);
 
-		driveTrain = new RobotDrive(driveTrainRightMotorTwo, driveTrainRightMotorOne, driveTrainLeftMotorTwo,
-				driveTrainLeftMotorOne);
-		turningGyro = new ADXRS450_Gyro();
-		gearLiftMotor = new Jaguar(6);
-		shooterMotorOne = new Jaguar(1);
-//		shooterMotorTwo = new Spark(5);
-		rotateShooterMotor = new Jaguar(0);
-		shooterAngleMotor = new Jaguar(3);
-		climberMotor = new Spark(8);
-		fuelPickupMotor = new VictorSP(2);
-		fuelConveyerMotor = new Spark(7);
+//		driveTrain = new RobotDrive(driveTrainRightMotorTwo, driveTrainRightMotorOne, driveTrainLeftMotorTwo,
+//				driveTrainLeftMotorOne);
+		
+		driveTrain = new RobotDrive(driveTrainRightMotorOne, driveTrainLeftMotorOne);
+		
+//		turningGyro = new ADXRS450_Gyro();
+//		gearLiftMotor = new Jaguar(6);
+		shooterMotorOne = new Jaguar(0);
+		shooterMotorTwo = new Spark(1);
+//		rotateShooterMotor = new Jaguar(0);
+//		shooterAngleMotor = new Jaguar(3);
+//		climberMotor = new Spark(8);
+//		fuelPickupMotor = new VictorSP(2);
+		fuelConveyerMotor = new Spark(6);
 //		shooterAngleMotor = new Jaguar(0);
 
 	}

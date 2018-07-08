@@ -14,7 +14,7 @@ public class ShooterSubsystem extends Subsystem {
 	
 	public void shootXSpeed(double speed) {
 		RobotMap.shooterMotorOne.set(speed);
-//		RobotMap.shooterMotorTwo.set(speed);
+		RobotMap.shooterMotorTwo.set(speed);
 	}
 	
 	public void rotateShooter(double speed){

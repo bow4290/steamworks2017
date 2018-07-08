@@ -52,19 +52,19 @@ public class OI {
 //		turnLeftButton = new JoystickButton(rightJoystick, 6);
 		//turnRightButton.whileHeld(new TurnXDegrees(90));
 		//turnLeftButton.whileHeld(new TurnXDegrees(180));
-		climberUpButton = new JoystickButton(rightJoystick, 5);
-		climberDownButton = new JoystickButton(rightJoystick, 4);
-		climberUpButton.whileHeld(new ClimbUpCommand());
-		climberDownButton.whileHeld(new ClimbDownCommand());
-		gearUpButton = new JoystickButton(rightJoystick, 3);
-		gearDownButton = new JoystickButton(rightJoystick, 2);
-		gearUpButton.whileHeld(new liftGearCommand());
-		gearDownButton.whileHeld(new dropGearCommand());
+//		climberUpButton = new JoystickButton(rightJoystick, 5);
+//		climberDownButton = new JoystickButton(rightJoystick, 4);
+//		climberUpButton.whileHeld(new ClimbUpCommand());
+//		climberDownButton.whileHeld(new ClimbDownCommand());
+//		gearUpButton = new JoystickButton(rightJoystick, 3);
+//		gearDownButton = new JoystickButton(rightJoystick, 2);
+//		gearUpButton.whileHeld(new liftGearCommand());
+//		gearDownButton.whileHeld(new dropGearCommand());
 		
-		useGearCameraButton = new JoystickButton(rightJoystick, 10);
-		useGearCameraButton.whenPressed(getDropGearWithCamera());
-		cancelGearCameraButton = new JoystickButton(rightJoystick, 11);
-		cancelGearCameraButton.cancelWhenPressed(getDropGearWithCamera());
+//		useGearCameraButton = new JoystickButton(rightJoystick, 10);
+//		useGearCameraButton.whenPressed(getDropGearWithCamera());
+//		cancelGearCameraButton = new JoystickButton(rightJoystick, 11);
+//		cancelGearCameraButton.cancelWhenPressed(getDropGearWithCamera());
 		
 		//Shooter Commands (Driver 2)
 		shootLowButton = new JoystickButton(leftJoystick, 4);
@@ -73,12 +73,12 @@ public class OI {
 		shootLowButton.whileHeld(new shootFuelByXCommand(0.3));
 		shootMidButton.whileHeld(new shootFuelByXCommand(0.6));
 		shootFullButton.whileHeld(new shootFuelByXCommand(1.0));
-		rotateShooterLeftButton = new JoystickButton(leftJoystick, 8);
+//		rotateShooterLeftButton = new JoystickButton(leftJoystick, 8);
 //		rotateShooterLeftButton.whileHeld(new RotateShooterByXCommand(-0.1));
-		rotateShooterRightButton = new JoystickButton(leftJoystick, 9);
+//		rotateShooterRightButton = new JoystickButton(leftJoystick, 9);
 //		rotateShooterRightButton.whileHeld(new RotateShooterByXCommand(0.1));
-		fuelPickupButton = new JoystickButton(leftJoystick, 1);
-		fuelPickupButton.whileHeld(new FuelPickupCommand());
+//		fuelPickupButton = new JoystickButton(leftJoystick, 1);
+//		fuelPickupButton.whileHeld(new FuelPickupCommand());
 		fuelConveyerOnButton = new JoystickButton(leftJoystick, 2);
 		fuelConveyerOnButton.whileHeld(new FuelConveyerPickupCommand());	
 //		shooterAngleDownButton = new JoystickButton(leftJoystick, 0);
